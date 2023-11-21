@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../data.db"
+}
+
+model Recipe {
+  id          String             @id @default(uuid())
+  name        String
+  numServings Int                @default(1)
+  ingredients RecipeIngredient[]
+  mealDays    RecipeMealDay[]
+}
+
+model Food {
+  id            String             @id // Slug
+  name          String
+  calories      Float
+  carbs         Float
+  fat           Float
+  protein       Float
+  packageAmount Float // Amount in grams per package
+  packagePrice  Float // Price per package
+  divisible     Boolean            @default(true) // Whether the package of the food is divisible (meaning, you can by fractional amounts if package)
+  recipes       RecipeIngredient[]
+  units         Unit[]
+}
+
+model Unit {
+  name             String
+  food             Food               @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  foodId           String
+  amount           Float
+  RecipeIngredient RecipeIngredient[]
+
+  @@id([name, foodId])
+}
+
+model RecipeIngredient {
+  recipe   Recipe  @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  recipeId String
+  food     Food    @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  foodId   String
+  amount   Float
+  unitName String?
+  unit     Unit?   @relation(fields: [unitName, foodId], references: [name, foodId], onDelete: Cascade)
+
+  @@id([recipeId, foodId])
+}
+
+model MacroGoal {
+  id         String           @id @default(uuid())
+  name       String
+  conditions MacroCondition[]
+  plan       MealPlan?
+}
+
+model MacroCondition {
+  macro  String // can be: calories, carbs, fat or protein
+  type   String // can be: min, max, exact
+  value  Float
+  goal   MacroGoal @relation(fields: [goalId], references: [id], onDelete: Cascade)
+  goalId String
+
+  @@id([macro, goalId])
+}
+
+model MealDay {
+  order   Int // Order of this day in the meal plan starting from 0
+  planId  String
+  plan    MealPlan        @relation(fields: [planId], references: [id], onDelete: Cascade)
+  recipes RecipeMealDay[]
+
+  @@id([order, planId])
+}
+
+model MealPlan {
+  id     String    @id @default(uuid())
+  days   MealDay[]
+  goal   MacroGoal @relation(fields: [goalId], references: [id], onDelete: Restrict)
+  goalId String
+
+  @@unique([goalId])
+}
+
+model RecipeMealDay {
+  id       String  @id @default(uuid())
+  recipe   Recipe  @relation(fields: [recipeId], references: [id])
+  recipeId String
+  day      MealDay @relation(fields: [dayOrder, planId], references: [order, planId])
+  dayOrder Int
+  planId   String
+}

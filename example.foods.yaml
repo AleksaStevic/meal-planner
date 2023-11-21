@@ -1,0 +1,257 @@
+- name: Ljuti ajvar (Bakina tajna)
+  calories: 119
+  carbs: 7
+  fat: 8.6
+  protein: 1.7
+  units:
+    - name: tbsp
+      amount: 50
+- name: Kečap pica (Polimark)
+  calories: 77
+  carbs: 18
+  fat: 0.1
+  protein: 1.1
+  units:
+    - name: tbsp
+      amount: 20
+- name: Gusti jogurt (Moja kravica, Imlek)
+  calories: 55
+  carbs: 4.2
+  fat: 2.8
+  protein: 3.4
+  units:
+    - name: cup
+      amount: 280
+- name: Feta (Olympus)
+  calories: 276
+  carbs: 0.7
+  fat: 23
+  protein: 16.5
+  units:
+    - name: package
+      amount: 200
+- name: Dimljena hamburška slanina (KIM)
+  calories: 134
+  carbs: 0.8
+  fat: 7.8
+  protein: 12.7
+- name: Krastavci (pasterizovani, Dijamant)
+  calories: 13
+  carbs: 2.5
+  fat: 0
+  protein: 0.8
+  units:
+    - name: package
+      amount: 330
+- name: Pavlaka za kuvanje (Moja kravica, Imlek)
+  calories: 205
+  carbs: 3.9
+  fat: 20
+  protein: 2.3
+  units:
+    - name: package
+      amount: 500
+- name: Balkanika (Dimmidisi)
+  calories: 21
+  carbs: 3.2
+  fat: 0.5
+  protein: 1
+  units:
+    - name: hand
+      amount: 40
+- name: Burger cheese (President)
+  calories: 231
+  carbs: 6
+  fat: 17
+  protein: 13.5
+  units:
+    - name: slice
+      amount: 16.67
+- name: Formaggio per pasta
+  calories: 506
+  carbs: 0.5
+  fat: 36
+  protein: 45
+  units:
+    - name: tsp
+      amount: 2.5
+- name: Senf (C)
+  calories: 108
+  carbs: 7.4
+  fat: 5.5
+  protein: 4.7
+  units:
+    - name: tsp
+      amount: 10
+- name: Skyr Natur (zbregov)
+  calories: 62
+  carbs: 4
+  fat: 0.2
+  protein: 11
+  units:
+    - name: tbsp
+      amount: 52
+- name: Rukola (Dimmidisi)
+  calories: 27
+  carbs: 2.6
+  fat: 0.1
+  protein: 3
+  units:
+    - name: hand
+      amount: 20
+- name: Tanka slaninca (Zlatiborac)
+  calories: 456
+  carbs: 0.6
+  fat: 39.8
+  protein: 24
+  units:
+    - name: slice
+      amount: 8.33
+- name: Sirko beli sir (Mlekara Šabac)
+  calories: 155
+  carbs: 1.3
+  fat: 11
+  protein: 13
+  units:
+    - name: piece
+      amount: 75
+- name: Pšenično belo brašno (Danubius)
+  calories: 342
+  carbs: 71.9
+  fat: 1.1
+  protein: 9.8
+  units:
+    - name: tbsp
+      amount: 15
+- name: Kačkavalj krstaš (Biser)
+  calories: 340
+  carbs: 0.7
+  fat: 25
+  protein: 27.8
+  units:
+    - name: slice
+      amount: 30
+- name: Ella sveži sir (Mlekara Subotica)
+  calories: 70
+  carbs: 3.7
+  fat: 0.4
+  protein: 13
+  units:
+    - name: tbsp
+      amount: 45
+- name: Stišnjena šunka (Neoplanta)
+  calories: 75
+  carbs: 3.5
+  fat: 1
+  protein: 13
+  units:
+    - name: slice
+      amount: 12
+- name: Jaja (M, Vero)
+  calories: 136
+  carbs: 0.4
+  fat: 9.3
+  protein: 12.7
+  units:
+    - name: egg
+      amount: 55
+- name: Hleb Sava (Braća Stanković)
+  calories: 269
+  carbs: 53.28
+  fat: 1.58
+  protein: 7.45
+  units:
+    - name: slice
+      amount: 50
+- name: Punomasni beli sir (Mlekara Homolje)
+  calories: 321
+  carbs: 0.2
+  fat: 27
+  protein: 20
+  units:
+    - name: bar
+      amount: 70
+- name: Mleko (Moja kravica, Imlek)
+  calories: 55
+  carbs: 4.5
+  fat: 2.8
+  protein: 3
+  units:
+    - name: package
+      amount: 500
+- name: Baby spanać (Dimmidisi)
+  calories: 21
+  carbs: 0.9
+  fat: 0
+  protein: 0.5
+  units:
+    - name: package
+      amount: 90
+- name: Suva svinjska pršuta (Zlatiborac)
+  calories: 193.3
+  carbs: 0.1
+  fat: 6
+  protein: 34.6
+  units:
+    - name: slice
+      amount: 5.55
+- name: Iceberg (Dimmidisi)
+  calories: 19
+  carbs: 2.9
+  fat: 0.1
+  protein: 0.7
+  units:
+    - name: hand
+      amount: 40
+- name: Mozzarella (Paladin)
+  calories: 331
+  carbs: 2
+  fat: 24.5
+  protein: 25
+- name: Kisela pavlaka (Moja kravica, Imlek)
+  calories: 204
+  carbs: 3.5
+  fat: 20
+  protein: 2.5
+- name: Balans+ Jogurt (Imlek)
+  calories: 41
+  carbs: 4
+  fat: 1
+  protein: 3.3
+  units:
+    - name: cup
+      amount: 280
+- name: Musli čoko i kakao (Fun&Fit)
+  calories: 424.24
+  carbs: 61
+  fat: 13
+  protein: 11
+  units:
+    - name: cup
+      amount: 60
+- name: Devičansko maslinovo ulje (Carapelli)
+  calories: 821
+  carbs: 0
+  fat: 91
+  protein: 0
+  units:
+    - name: tbsp
+      amount: 6
+- name: Začin C
+  calories: 151
+  carbs: 32.1
+  fat: 0.2
+  protein: 3.8
+  units:
+    - name: tbsp
+      amount: 14
+- name: Voda
+  calories: 0
+  carbs: 0
+  fat: 0
+  protein: 0
+  units:
+    - name: glass
+      amount: 250
+    - name: ml
+      amount: 1

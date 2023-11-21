@@ -1,0 +1,9 @@
+- name: Test Recipe
+  numServings: 50
+  ingredients:
+    - foodId: kecap-pica-polimark
+      amount: 30
+      unitName: null
+    - foodId: hleb-sava-braca-stankovic
+      amount: 1
+      unitName: 'slice'
