@@ -8,7 +8,7 @@ const macroGoalWithConditions = Prisma.validator<Prisma.MacroGoalDefaultArgs>()(
 		include: {
 			conditions: true,
 		},
-	},
+	}
 )
 
 type MacroGoalWithConditions = Prisma.MacroGoalGetPayload<
@@ -27,19 +27,20 @@ export function outputMacroGoal(goal: MacroGoalWithConditions) {
 			assert(
 				// @ts-ignore
 				typeof textMap[cond.type] !== 'undefined',
-				`Unknown condition type: ${cond.type}`,
+				`Unknown condition type: ${cond.type}`
 			)
 
 			// @ts-ignore
 			return `${cond.macro}: ${textMap[cond.type]} ${cond.value}`
 		})
+		.concat([`name: ${goal.name}`])
 		.join('\n')
 
 	console.log(
 		boxen(content, {
-			title: chalk.white(goal.name),
+			title: chalk.white(goal.id),
 			titleAlignment: 'center',
 			padding: 0.5,
-		}),
+		})
 	)
 }
