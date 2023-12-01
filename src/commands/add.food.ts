@@ -91,7 +91,7 @@ export async function run() {
 				name: answers.name,
 				id: answers.id,
 				packageAmount: answers.packageAmount,
-				price: answers.price,
+				packagePrice: answers.price,
 				divisible: answers.divisible,
 				calories: (answers.calories / answers.macroReferenceMass) * 100,
 				carbs: (answers.carbs / answers.macroReferenceMass) * 100,

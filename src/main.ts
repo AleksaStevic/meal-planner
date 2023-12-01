@@ -3,6 +3,7 @@ import { Command } from '@commander-js/extra-typings'
 // Commands
 import { run as runMealPlan } from 'commands/meal.plan'
 import { run as runShowMealPlan } from 'commands/show.meal.plan'
+import { run as runDeleteMealPlan } from 'commands/delete.meal.plan'
 import { run as runImportFoods } from 'commands/import.foods'
 import { run as runImportRecipes } from 'commands/import.recipes'
 import { run as runAddFood } from 'commands/add.food'
@@ -12,12 +13,17 @@ import { run as runShoppingList } from 'commands/shopping.list'
 import { run as runDeleteRecipes } from 'commands/delete.recipes'
 import { run as runShow } from 'commands/show'
 import { run as runAddGoal } from 'commands/add.goal'
+import { run as runShowGoal } from 'commands/show.goal'
 import { run as runDeleteGoal } from 'commands/delete.goal'
+
+// package.json
+import { version } from '../package.json'
+import chalk from 'chalk'
 
 const program = new Command()
 	.name('meal-planner')
 	.description('CLI for meal planning.')
-	.version('0.1.0')
+	.version(version)
 
 const recipeCmd = program.command('recipe').description('Recipe CLI.')
 const foodCmd = program.command('food').description('Food CLI.')
@@ -73,12 +79,24 @@ mealPlanCmd
 	.argument('<meal-plan-id>', 'Show meal plan.')
 	.action(runShowMealPlan)
 
+mealPlanCmd
+	.command('delete')
+	.description("Delete meal plan given it's id.")
+	.argument('<meal-plan-id>', 'Meal plan ID')
+	.action(runDeleteMealPlan)
+
 // Macro goals:
 goalCmd
 	.command('add')
 	.description('Add new macro goal')
 	.arguments('<name> <calories> <carbs-range> <fat-range> <protein-range>')
 	.action(runAddGoal)
+
+goalCmd
+	.command('show')
+	.description('Show macro goal.')
+	.argument('<id>', 'Macro goal id.')
+	.action(runShowGoal)
 
 goalCmd
 	.command('delete')
@@ -100,4 +118,10 @@ program
 	.argument('<id-or-name>', 'ID of the food/recipe.')
 	.action(runShow)
 
-await program.parseAsync(Bun.argv)
+try {
+	await program.parseAsync(Bun.argv)
+} catch (e) {
+	if (e instanceof Error) {
+		console.error(chalk.red(e.message))
+	}
+}

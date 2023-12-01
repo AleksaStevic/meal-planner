@@ -1,4 +1,4 @@
-export function promisify<Input, Result>(worker: Worker | URL) {
+export function createWorker<Input, Result>(worker: Worker | URL) {
 	const workerObj = worker instanceof URL ? new Worker(worker) : worker
 
 	return {

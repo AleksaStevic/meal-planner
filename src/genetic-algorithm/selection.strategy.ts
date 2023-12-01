@@ -1,14 +1,11 @@
 import { rnd } from 'helpers/combinatorics.ts'
-import { SelectionStrategy } from './types.ts'
+import { Individual, SelectionStrategy } from './types.ts'
 
-export function tournamentSelection<Individual>(
+export function tournamentSelection<DNAPart>(
 	tournamentSize: number
-): SelectionStrategy<Individual> {
-	return (
-		population: Individual[],
-		calcFitness: (individual: Individual) => number
-	) => {
-		const participans: Individual[] = []
+): SelectionStrategy<DNAPart> {
+	return (population: Individual<DNAPart>[]) => {
+		const participans: Individual<DNAPart>[] = []
 
 		// Randomly select individuals for the tournament
 		for (let i = 0; i < tournamentSize; i++) {
@@ -19,7 +16,7 @@ export function tournamentSelection<Individual>(
 		// Find the individual with the highest fitness in the tournament
 		let fittest = participans[0]
 		for (let i = 1; i < participans.length; i++) {
-			if (calcFitness(participans[i]) > calcFitness(fittest)) {
+			if (participans[i].fitness > fittest.fitness) {
 				fittest = participans[i]
 			}
 		}
@@ -28,22 +25,17 @@ export function tournamentSelection<Individual>(
 	}
 }
 
-export function rouletteWheelSelection<
-	Individual
->(): SelectionStrategy<Individual> {
-	return (
-		population: Individual[],
-		calcFitness: (individual: Individual) => number
-	) => {
+export function rouletteWheelSelection<DNAPart>(): SelectionStrategy<DNAPart> {
+	return (population: Individual<DNAPart>[]) => {
 		const totalFitness = population.reduce(
-			(sum, individual) => sum + calcFitness(individual),
+			(sum, individual) => sum + individual.fitness,
 			0
 		)
 		const pick = Math.random() * totalFitness
 		let currentSum = 0
 
 		for (const individual of population) {
-			currentSum += calcFitness(individual)
+			currentSum += individual.fitness
 			if (currentSum >= pick) {
 				return individual
 			}
@@ -53,15 +45,12 @@ export function rouletteWheelSelection<
 	}
 }
 
-export function rankSelection<Individual>(
+export function rankSelection<DNAPart>(
 	survivingSize: number
-): SelectionStrategy<Individual> {
-	return (
-		population: Individual[],
-		calcFitness: (individual: Individual) => number
-	) => {
+): SelectionStrategy<DNAPart> {
+	return (population: Individual<DNAPart>[]) => {
 		const sortedPopulation = [...population].sort(
-			(a, b) => calcFitness(b) - calcFitness(a)
+			(a, b) => b.fitness - a.fitness
 		)
 
 		const index = rnd.int(0, survivingSize - 1)

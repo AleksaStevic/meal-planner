@@ -54,7 +54,7 @@ export async function run(filePath: string) {
 					fat: food.fat,
 					protein: food.protein,
 					packageAmount: food.packageAmount,
-					price: food.price,
+					packagePrice: food.price,
 					units: {
 						create: food.units,
 					},

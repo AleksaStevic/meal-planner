@@ -69,7 +69,7 @@ export async function run(
 
 	const macroGoal = await prisma.macroGoal.create({
 		data: {
-			name,
+			id: name,
 			conditions: {
 				create: conditions,
 			},

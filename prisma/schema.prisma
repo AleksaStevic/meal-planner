@@ -56,9 +56,8 @@ model RecipeIngredient {
 
 model MacroGoal {
   id         String           @id @default(uuid())
-  name       String
   conditions MacroCondition[]
-  plan       MealPlan?
+  plan       MealPlan[]
 }
 
 model MacroCondition {
@@ -85,15 +84,13 @@ model MealPlan {
   days   MealDay[]
   goal   MacroGoal @relation(fields: [goalId], references: [id], onDelete: Restrict)
   goalId String
-
-  @@unique([goalId])
 }
 
 model RecipeMealDay {
   id       String  @id @default(uuid())
   recipe   Recipe  @relation(fields: [recipeId], references: [id])
   recipeId String
-  day      MealDay @relation(fields: [dayOrder, planId], references: [order, planId])
+  day      MealDay @relation(fields: [dayOrder, planId], references: [order, planId], onDelete: Cascade)
   dayOrder Int
   planId   String
 }

@@ -1,5 +1,5 @@
 export function expDecay(x: number) {
-	return Math.exp(-10 * (x - 1) * (x - 1))
+	return Math.exp(-10 * (x - 1) * (x - 1)) - 0.5
 }
 
 /**

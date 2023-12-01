@@ -1,38 +1,18 @@
-export type SelectionStrategy<T> = (
-	population: T[],
-	calcFitness: (individual: T) => number
-) => T
+export type SelectionStrategy<DNAPart> = (
+	population: Individual<DNAPart>[]
+) => Individual<DNAPart>
 
-// DNA = RecipeData
-export type GAOptions<Individual, DNAPart, DNA = DNAPart[]> = {
+export type GAOptions<DNAPart> = {
 	pool: DNAPart[]
-	randomIndividual: (pool: DNAPart[]) => Individual
-	createIndividual: (dna: DNA) => Individual
-	getDNA: (individual: Individual) => DNA
-	calcFitness: (i: Individual) => number
-	selectionStrategy: SelectionStrategy<Individual>
+	fitness: (i: DNAPart[][]) => number
+	selectionStrategy: SelectionStrategy<DNAPart>
 	populationSize: number
 	mutationRate: number
 	maxGenerations: number
+	dnaLength: number
 }
 
-export type GACrossoverParams<Individual, DNA> = {
-	p1: Individual
-	p2: Individual
-	getDNA: (individual: Individual) => DNA
-	createIndividual: (dna: DNA) => Individual
-}
-
-export type GAMutateParams<Individual, DNAPart, DNA = DNAPart[]> = {
-	pool: DNAPart[]
-	individual: Individual
-	mutationRate: number
-	getDNA: (individual: Individual) => DNA
-	createIndividual: (dna: DNA) => Individual
-}
-
-export type GASelectParentsParams<Individual> = {
-	population: Individual[]
-	strategy: SelectionStrategy<Individual>
-	calcFitness: (i: Individual) => number
+export type Individual<DNAPart> = {
+	dna: DNAPart[][]
+	fitness: number
 }

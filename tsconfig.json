@@ -19,8 +19,9 @@
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
-    // "paths": {
-    //   "commands/*": ["commands/*"] 
-    // }
-  }
+  },
+  "include": [
+    "src/**/*",
+    "package.json"
+  ]
 }
