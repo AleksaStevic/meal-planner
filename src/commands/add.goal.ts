@@ -1,8 +1,8 @@
 // DB
-import { prisma } from 'db/client.ts'
+import { prisma } from 'db/client'
 
 // Helpers
-import { outputMacroGoal } from 'helpers/macro.goal.ts'
+import { outputMacroGoal } from 'helpers/macro.goal'
 
 function parse(input: string, maxCalories: number) {
 	if (input.startsWith('<')) {
