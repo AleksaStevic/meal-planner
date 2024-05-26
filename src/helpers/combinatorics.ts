@@ -1,6 +1,6 @@
 import random from 'random'
 
-export const rnd = random.clone(31462)
+export const rnd = random.clone(Math.random() * 10_000)
 
 export function chooseRepeating<T>(arr: T[], k: number): T[] {
 	const result: T[] = []
